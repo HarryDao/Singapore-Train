@@ -1,0 +1,128 @@
+@import 'base.scss';
+
+.SearchInput {
+    width: 250px;
+
+    > .input-wrapper {
+        position: relative;
+        width: 100%;
+
+        > input {
+            @extend .text_smedium;
+            @include transition();
+            padding: $line_normal/3 50px $line_normal/3 $line_normal/2;
+            border-radius: $line_normal/2;
+            width: 100%;
+            color: $aqua_darker;
+            font-weight: 600;
+
+            &::placeholder {
+                font-weight: 500;
+            }
+        }
+
+        > .arrow {
+            @include transition();
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            padding: 3px;
+            opacity: 0.5;
+            > .inner {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                border-left: 1px solid $grey_input;
+                > i {
+                    font-size: $size_smedium;
+                    color: $grey;
+                }
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            > input {
+                border-color: $grey_input;
+            }
+
+            > .arrow {
+                opacity: 1;
+            }
+        }
+    }
+
+    > .choices {
+        position: relative;
+        > ul {
+            position: absolute;
+            z-index: 1000;
+            left: 0;
+            right: 0;
+            max-height: 40vh;
+            overflow: auto;
+            list-style: none;
+            padding: 5px 0px;
+            margin: 5px 0 0 0;
+            border: 1px solid $grey;
+            background: $white;
+            border-radius: $line_normal/2;
+
+            > li {
+                @extend .text_medium;
+                @include transition(100ms);
+                padding-left: $line_normal/2;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                color: $black;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &.active {
+                    background: $aqua_white;
+                }
+
+                &.no-option {
+                    text-align: center;
+                    color: $grey;
+
+                    &:hover {
+                        cursor: default;
+                    }
+
+                    &.active {
+                        background: white;
+                    }
+                }
+            }
+        }
+    }
+
+    &.show {
+        > .input-wrapper {
+            > .arrow {
+                opacity: 1;
+                > .inner {
+                    > i {
+                        color: $aqua_dark;
+                    }
+                }
+            }
+        }
+    }
+
+    &.error {
+        > .input-wrapper {
+            > input {
+                border: 1px solid $red;
+                box-shadow: 0 0 5px $red;
+            }
+        }
+    }
+}

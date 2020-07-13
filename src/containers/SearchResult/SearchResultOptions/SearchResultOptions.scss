@@ -1,0 +1,138 @@
+@import 'base.scss';
+
+.SearchResultOptions {
+    position: relative;
+    min-height: 100px;
+
+    > .inner {
+        @include transition();
+        opacity: 1;
+    
+        &.hide {
+            opacity: 0;
+        }
+
+        > table {
+            width: 100%;
+            border-collapse: collapse;
+
+        
+            > thead, > tbody {
+                > tr {
+                    > .check {
+                        width: 20%;
+                    }
+        
+                    > .time {
+                        width: 30%;
+                    }
+        
+                    > .stations {
+                        width: 25%;
+                    }
+        
+                    > .transfers {
+                        width: 25%;
+                    }
+        
+                    > .time, >.stations, > .transfers {
+                        text-align: left;
+                    }
+                }
+            }
+        
+            > thead {
+                > tr {
+                    > th {
+                        @extend .text_small;
+                        font-weight: 700;
+                        color: $white;
+                        padding-top: 15px;
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+        
+            > tbody {
+                > tr.SearchResultOptionsItem {
+                    @include transition();
+        
+                    > td {
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        @include transition();
+                    }
+        
+                    > .check {
+                        width: 20%;
+                        text-align: center;
+                        color: $aqua;
+                        opacity: 0;                    
+                    }
+                    > .time, > .stations, > .transfers {
+                        @extend .text_smedium;
+                        color: $grey;
+                        font-weight: 600;                    
+                    }
+        
+                    &:hover {
+                        background: $aqua_dark_opacity;
+                        cursor: pointer;
+                    }
+        
+                    &.active {
+                        background: $aqua_darker;
+                        > .check {
+                            opacity: 1;
+                        }
+        
+                        > .time, > .stations, > .transfers {
+                            color: $aqua;
+                        }
+                    }
+                }
+            }
+        }
+    
+        > .next {
+            text-align: center;
+            position: relative;
+            > button {
+                @include transition();
+                @extend .text_normal;
+                margin: 10px auto 0px;
+                background: transparent;
+                text-decoration: underline;
+                color: $white;
+                opacity: 1;
+                font-weight: 600;
+    
+                &.hide {
+                    opacity: 0;
+                }
+            }
+        }
+    
+        > p.no-more {
+            @extend .text_normal;
+            text-align: center;
+            color: $red;
+            font-weight: 600;
+            margin: 10px auto 0px;
+        }
+
+        > .no-route {
+            @extend .text_large;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $white;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+$mobile_size: 480px;
+$tablet_size: 800px;
+
+$grey_white: #f4f4f4;
+$grey_white2: #d1d1d1; 
+$white: white;
+$grey: #a1a1a1;
+$grey_input: rgb(179, 179, 179);
+$grey_input_blur: rgb(204, 204, 204);
+$blue_input: #2664FF;
+$blue: #5e95bb;
+$blue_white: #edf2f5;
+$red: red;
+$black: #333333;
+$background_grey_transparent: rgba(54, 54, 54, 0.9);
+$aqua: #66FCF1;
+$aqua_white: #e6fffd;
+$aqua_opacity: rgba(102, 252, 241, 0.9); 
+$aqua_dark: #45A29E;
+$aqua_dark_opacity: rgba(69, 162, 158, 0.9);
+$aqua_darker: #2e6d6a;
+$aqua_darker_opacity: rgba(46, 109, 106, 0.9);
+$aqua_darker2: #296360;
+
+$color_sea: #9ed3ed;
+$color_park: #9fda9d;
+$color_lines: (
+    "BP": '#738373',
+    "PE": '#738373',
+    "PW": '#738373',
+    "SE": '#738373',
+    "SW": '#738373',
+    "CC": '#fd9c31',
+    "CE": '#fd9c31',
+    "DT": '#0c5bb5',
+    "EW": '#149341',
+    "CG": '#149341',
+    "NE": '#9735b2',
+    "NS": '#d2301f',
+);
+
+$size_xlarge: 50px;
+$line_xlarge: 60px;
+
+$size_larger: 40px;
+$line_larger: 50px;
+
+$size_large: 30px;
+$line_large: 40px;
+
+$size_medium: 20px;
+$line_medium: 30px;
+
+$size_smedium: 17px;
+$line_smedium: 25px;
+
+$size_normal: 15px;
+$line_normal: 20px;
+
+$size_small: 12px;
+$line_small: 15px;
+
+$size_smaller: 9px;
+$line_smaller: 12px;
+
+$size_smallest: 6px;
+$line_smallest: 9px;

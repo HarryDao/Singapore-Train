@@ -1,0 +1,80 @@
+@mixin text_xlarge {
+    font-size: $size_xlarge;
+    line-height: $line_xlarge;   
+}
+
+.text_xlarge {
+    @include text_xlarge();
+}
+
+@mixin text_larger {
+    font-size: $size_larger;
+    line-height: $line_larger;   
+}
+
+.text_larger {
+    @include text_larger();
+}
+
+@mixin text_smedium {
+    font-size: $size_smedium;
+    line-height: $line_smedium;
+}
+
+.text_smedium {
+    @include text_smedium;
+}
+
+@mixin text_medium {
+    font-size: $size_medium;
+    line-height: $line_medium;
+}
+
+.text_medium {
+    @include text_medium;
+}
+
+@mixin text_large {
+    font-size: $size_large;
+    line-height: $line_large;   
+}
+
+.text_large {
+    @include text_large();
+}
+
+@mixin text_normal() {
+    font-size: $size_normal;
+    line-height: $line_normal;
+}
+
+.text_normal {
+    @include text_normal();
+}
+
+@mixin text_small() {
+    font-size: $size_small;
+    line-height: $line_small;
+}
+
+.text_small {
+    @include text_small();
+}
+
+@mixin text_smaller() {
+    font-size: $size_smaller;
+    line-height: $line_smaller;
+}
+
+.text_smaller {
+    @include text_smaller();
+}
+
+@mixin text_smallest() {
+    font-size: $size_smallest;
+    line-height: $line_smallest;
+}
+
+.text_smallest {
+    @include text_smallest();
+}

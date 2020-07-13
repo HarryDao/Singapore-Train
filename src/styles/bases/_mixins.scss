@@ -1,0 +1,31 @@
+@mixin box_sizing ($type: border-box) {
+    box-sizing: $type;
+    -moz-box-sizing: $type;
+    -webkit-box-sizing: $type;
+}
+
+@mixin transition($time: 0.2s, $ease: ease-in-out) {
+    transition: $time $ease;
+    -moz-transition: $time $ease;
+    -webkit-transition: $time $ease;
+}
+
+
+@mixin tablet {
+    @media (max-width: #{$tablet_size}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile_size}) {
+        @content;
+    }
+}
+
+@mixin spin($duration: 1000ms) {
+    animation-name: spin;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}

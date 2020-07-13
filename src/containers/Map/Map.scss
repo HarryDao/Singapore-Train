@@ -1,0 +1,10 @@
+@import 'base.scss';
+
+.Map {
+    display: flex;
+    > svg {
+        background: $color_sea;
+        width: 100%;
+        height: 100%;
+    }
+}

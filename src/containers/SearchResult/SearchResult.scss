@@ -1,0 +1,51 @@
+@import 'base.scss';
+
+.SearchResult {
+    @include transition();
+    position: relative;
+    border-right: 2px solid $grey;
+    width: 0;
+    opacity: 0;
+    height: 100%;
+    overflow: auto;
+
+    &.active {
+        width: 350px;
+        opacity: 1;
+    }
+
+    > .off-service {
+        text-align: center;
+        padding: 10px;
+
+        > img {
+            max-width: 80%;
+        }
+
+        > p {
+            @extend .text_normal;
+            color: $black;
+            font-weight: 600;
+
+            > span {
+                color: $aqua_darker;
+            }
+        }
+    }
+
+    > .inner {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+
+        > .general {
+            background: $black;
+            border-top-left-radius: 3px;
+            padding: 10px 0;
+            width: 100%;
+        }
+    }
+}

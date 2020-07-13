@@ -1,0 +1,102 @@
+@import 'base.scss';
+
+.SearchResultDetails {
+    // position: relative;
+
+    > .inner {
+        @include transition();
+        opacity: 1;
+
+        &.hide {
+            opacity: 0;
+        }
+
+        > .trip-information {
+            > .SearchResultDetailsItem {
+                padding: 10px 0;
+        
+                > .row {
+                    width: 100%;
+                    display: flex;
+                    padding: 5px 0;
+        
+                    &:first-child {
+                        padding-bottom: 0;
+                    }
+        
+                    > .time {
+                        width: 20%;
+                        text-align: right;
+                        padding-right: 10px;
+        
+                        > span {
+                            font-size: $size_normal * 3/4;
+                            line-height: $line_normal;
+                            font-weight: 900;
+                            padding: 5px;
+                            border-radius: 3px;
+                        }
+                    }
+        
+                    > .description {
+                        width: 80%;
+                        padding-right: 5px;
+                        color: $black;
+        
+                        > p {
+                            @extend .text_small;
+                            margin: 0;
+        
+                            > span {
+                                font-weight: 600;
+                            }
+        
+                            > .colorized-station {
+                                font-size: 0.75em;
+                                padding: 3px;
+                                font-weight: 600;
+                                border-radius: 3px;
+                            }
+                        }
+        
+                        > .line-header {
+                            @extend .text_normal;
+                            font-weight: 700;
+                            text-decoration: underline;
+                            border-radius: 15px;                   
+                        }
+                    }
+                }
+            }
+        }
+
+        > .switch-trip {
+            position: absolute;
+            bottom: 10px;
+
+            @include transition();
+            text-align: right;
+            padding: 0 10px;
+            width: 100%;
+
+            &.prev {
+                width: 0;
+            }
+
+            > button {
+                @include transition();
+                @extend .text_normal;
+                background: $aqua_darker;
+                color: $white;
+                font-weight: 600;
+                border-radius: 5px;
+                white-space: nowrap;
+                opacity: 0.5;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

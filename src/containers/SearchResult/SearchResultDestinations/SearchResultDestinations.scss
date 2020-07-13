@@ -1,0 +1,69 @@
+@import 'base.scss';
+
+.SearchResultDestinations {
+    position: relative;
+    padding: 10px 0;
+
+    > button.switch {
+        @include transition();
+        @extend .text_normal;
+        background: transparent;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        color: $aqua;
+        opacity: 0.8;
+
+        &.switching {
+            @include spin();
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    > table {
+        width: 100%;
+        border-collapse: collapse;
+
+        > tbody {
+            > tr {
+                > td {
+                    padding: 5px 0;
+                    > div {
+                        font-size: $size_normal;
+                        height: 30px;
+                        width: 30px;
+                        border: 2px solid $white;
+                        border-radius: 50%;
+                        color: $white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: 600;
+                        margin: 0 auto;
+                    }
+
+                    &:first-child {
+                        width: 20%;
+                    }
+
+                    &:nth-child(2) {
+                        @extend .text_smedium;
+                        width: 80%;
+                        color: $aqua;
+                        font-weight: 600;
+                    }
+                }
+
+                &:last-child {
+                    > td:last-child {
+                        border-bottom: 1px solid $grey;
+                    }
+                }
+            }
+        }
+    }
+}
