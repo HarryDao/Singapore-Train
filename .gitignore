@@ -17,6 +17,7 @@
 # ssl
 /server/ssl/key.key
 /server/ssl/key.crt
+/server/ssl/key.ca-bundle
 
 # misc
 .DS_Store

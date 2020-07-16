@@ -15,6 +15,13 @@ function setupMainServer(port, sslConfigs) {
     let mainServer;
 
     if (sslConfigs) {
+        mainApp.use((req, res, next) => {
+            if(req.protocol === 'http') {
+                res.redirect(301, `https://${req.headers.host}${req.url}`);
+            }
+            next();
+        });
+
         mainServer = https.createServer(sslConfigs, mainApp);
         mainServer.listen(port, () => {
             console.log(`HTTPS Server running on port ${port}`);
@@ -41,16 +48,6 @@ function setupMainServer(port, sslConfigs) {
     });
 };
 
-function setupRedirectServer(port) {
-    const redirectApp = express();
-    redirectApp.get('*', (req, res) => {
-        res.redirect(`https://${req.headers.host}${req.path}`);
-    });
-    redirectApp.listen(port, () => {
-        console.log(`HTTP Server running on port ${port}, will redirect to HTTPS server`);
-    });
-}
-
 function getSSLConfigs() {
     return {
         key: fs.readFileSync(
@@ -58,13 +55,15 @@ function getSSLConfigs() {
         ),
         cert: fs.readFileSync(
             path.join(__dirname, './ssl/key.crt')
+        ),
+        ca: fs.readFileSync(
+            path.join(__dirname, './ssl/key.ca-bundle')
         )
     };
 }
 
 // Run server with HTTP
-setupMainServer(MAIN_PORT);
+// setupMainServer(MAIN_PORT);
 
 // Run server with HTTPS & redirect HTTP to HTTPS
-// setupMainServer(MAIN_PORT, getSSLConfigs());
-// setupRedirectServer(REDIRECT_PORT);
+setupMainServer(MAIN_PORT, getSSLConfigs());
