@@ -1,5 +1,5 @@
 import openSocketIO from 'socket.io-client';
-import { SERVER_URL } from 'configs';
+import { SOCKET_SERVER } from 'configs';
 
 export enum SocketIOEvents {
     connect = 'connect',
@@ -22,11 +22,11 @@ export class SocketIO {
 
     private init(): Promise<SocketIOClient.Socket> {
         return new Promise(resolve => {
-            this.io = openSocketIO(SERVER_URL);
+            this.io = openSocketIO(SOCKET_SERVER);
             this.io.on(SocketIOEvents.connect, () => {
                 resolve(this.io);
             });
-        });  
+        });
     }
 
     catchTrainInformation = <T>(onData: (data: T) => any) => {

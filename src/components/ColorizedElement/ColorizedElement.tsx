@@ -4,7 +4,7 @@ import { MRT_LINES } from 'configs';
 
 export const _ColorizedElement: FunctionComponent<
     ColorizedElementProps
-> = (props) => {  
+> = (props: ColorizedElementProps) => {  
     let {
         line,
         tag = 'div',
