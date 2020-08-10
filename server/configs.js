@@ -1,5 +1,5 @@
 module.exports = {
-    // SOCKET_PATH: '/singapore-train-socket',
+    PORT: process.env.PORT || 3201,
     TIME_ZONE_OFFSET: 8,
     TRAIN_CONFIGS: {
         BROADCAST_INTERVALS_IN_MINUTES: 5,

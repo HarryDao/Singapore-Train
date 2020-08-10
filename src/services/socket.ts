@@ -22,11 +22,13 @@ export class SocketIO {
 
     private init(): Promise<SocketIOClient.Socket> {
         return new Promise(resolve => {
-            this.io = openSocketIO(SOCKET_SERVER);
+            this.io = openSocketIO(SOCKET_SERVER.host, {
+                path: SOCKET_SERVER.path
+            });
             this.io.on(SocketIOEvents.connect, () => {
                 resolve(this.io);
             });
-        });
+        });  
     }
 
     catchTrainInformation = <T>(onData: (data: T) => any) => {

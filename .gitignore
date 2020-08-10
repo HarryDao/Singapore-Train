@@ -10,9 +10,11 @@
 
 # configs:
 /src/configs/index.ts
+/src/configs/index.ts.aws
 
 # production
 /build
+/build.zip
 
 # ssl
 /server/ssl/key.key

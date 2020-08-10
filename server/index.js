@@ -16,10 +16,7 @@ server.listen(PORT, () => {
     console.log(`HTTP Server running on port ${PORT}`);
 });
 
-const io = require('socket.io')(
-    server,
-    { path: SOCKET_PATH }
-);
+const io = require('socket.io')(server);
     
 app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
