@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import './Map.scss';
 import { fetchMapData } from 'actions';
+import { SpinnerLoader } from 'components/SpinnerLoader';
 import {
     MapConfigurations,
     MapData,
@@ -57,8 +58,13 @@ export class _Map extends React.PureComponent<MapProps> {
     }
 
     render() {
+        const { loading } = this.props;
+
         return (
             <div className='Map'>
+                <SpinnerLoader
+                    show={loading}
+                />
                 <svg
                     ref={svg => {
                         this.configurations.svg = svg;

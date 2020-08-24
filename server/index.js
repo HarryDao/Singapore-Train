@@ -6,8 +6,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const routers = require('./routers');
-const { SOCKET_PATH } = require('./configs');
-const PORT = process.env.PORT || 3001;
+const { SOCKET_PATH, PORT } = require('./configs');
 
 const app = express();
 const server = http.createServer(app);
