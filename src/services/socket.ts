@@ -1,37 +1,35 @@
-import openSocketIO from 'socket.io-client';
-import { SOCKET_SERVER } from 'configs';
+import openSocketIO, { Socket } from "socket.io-client";
+import { SERVER_URL } from "configs";
 
 export enum SocketIOEvents {
-    connect = 'connect',
-    trainInformation = 'train-information'
-};
+  connect = "connect",
+  trainInformation = "train-information",
+}
 
 export class SocketIO {
-    static socket: (SocketIO | undefined) = undefined;
+  static socket: SocketIO | undefined = undefined;
 
-    static async getSocket(): Promise<SocketIO> {
-        if (!SocketIO.socket) {
-            SocketIO.socket = new SocketIO();
-            await SocketIO.socket.init();
-        }
-        
-        return SocketIO.socket;
+  static async getSocket(): Promise<SocketIO> {
+    if (!SocketIO.socket) {
+      SocketIO.socket = new SocketIO();
+      await SocketIO.socket.init();
     }
 
-    io: (SocketIOClient.Socket | undefined) = undefined;
+    return SocketIO.socket;
+  }
 
-    private init(): Promise<SocketIOClient.Socket> {
-        return new Promise(resolve => {
-            this.io = openSocketIO(SOCKET_SERVER.host, {
-                path: SOCKET_SERVER.path
-            });
-            this.io.on(SocketIOEvents.connect, () => {
-                resolve(this.io);
-            });
-        });  
-    }
+  io: Socket | undefined = undefined;
 
-    catchTrainInformation = <T>(onData: (data: T) => any) => {
-        this.io?.on(SocketIOEvents.trainInformation, onData);
-    };
+  private init(): Promise<Socket> {
+    return new Promise((resolve) => {
+      this.io = openSocketIO(SERVER_URL);
+      this.io.on(SocketIOEvents.connect, () => {
+        resolve(this.io!);
+      });
+    });
+  }
+
+  catchTrainInformation = <T>(onData: (data: T) => any) => {
+    this.io?.on(SocketIOEvents.trainInformation, onData);
+  };
 }
