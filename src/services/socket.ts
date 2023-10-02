@@ -1,4 +1,5 @@
 import openSocketIO, { Socket } from "socket.io-client";
+import url from "url";
 import { SERVER_URL } from "configs";
 
 export enum SocketIOEvents {
@@ -22,7 +23,10 @@ export class SocketIO {
 
   private init(): Promise<Socket> {
     return new Promise((resolve) => {
-      this.io = openSocketIO(SERVER_URL);
+      const { protocol, host, path } = url.parse(SERVER_URL);
+      this.io = openSocketIO(`${protocol}//${host}`, {
+        path: `${path || ""}/socket.io`,
+      });
       this.io.on(SocketIOEvents.connect, () => {
         resolve(this.io!);
       });
